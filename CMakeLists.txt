@@ -26,6 +26,9 @@ endif()
 # Couche métier : aucune dépendance vers présentation ni persistance (EOO-01).
 add_library(metier STATIC
   src/metier/montant_en_lettres.cpp
+  src/metier/arrondi.cpp
+  src/metier/taux.cpp
+  src/metier/montant.cpp
 )
 target_include_directories(metier PUBLIC src)
 target_link_libraries(metier PUBLIC istile_options)
@@ -35,6 +38,8 @@ enable_testing()
 add_executable(tests_unitaires
   tests/test_main.cpp
   tests/test_montant_en_lettres.cpp
+  tests/test_arrondi.cpp
+  tests/test_montant.cpp
 )
 target_include_directories(tests_unitaires SYSTEM PRIVATE tests/third_party)
 target_link_libraries(tests_unitaires PRIVATE metier istile_options)
