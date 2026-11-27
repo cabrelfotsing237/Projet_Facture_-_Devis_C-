@@ -29,6 +29,10 @@ add_library(metier STATIC
   src/metier/arrondi.cpp
   src/metier/taux.cpp
   src/metier/montant.cpp
+  src/metier/quantite.cpp
+  src/metier/ligne_document.cpp
+  src/metier/ligne_fourniture.cpp
+  src/metier/ligne_main_oeuvre.cpp
 )
 target_include_directories(metier PUBLIC src)
 target_link_libraries(metier PUBLIC istile_options)
@@ -40,6 +44,8 @@ add_executable(tests_unitaires
   tests/test_montant_en_lettres.cpp
   tests/test_arrondi.cpp
   tests/test_montant.cpp
+  tests/test_quantite.cpp
+  tests/test_ligne.cpp
 )
 target_include_directories(tests_unitaires SYSTEM PRIVATE tests/third_party)
 target_link_libraries(tests_unitaires PRIVATE metier istile_options)
